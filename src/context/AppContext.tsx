@@ -40,12 +40,14 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
         const res = await fetch('http://localhost:8080/api/meal-plans/current');
         let meals: Meal[] = [];
         if (res.ok) {
-          type MealResponse = Omit<Meal, 'isLeftover'> & { leftover: boolean };
-          const data: MealResponse[] = await res.json();
-          meals = data.map((m) => ({
-            ...m,
-            isLeftover: m.leftover,
-          }));
+          type MealPlanResponse = {
+            id: number;
+            startDate: [number, number, number];
+            endDate: [number, number, number];
+            meals: Meal[];
+          };
+          const data: MealPlanResponse = await res.json();
+          meals = data.meals;
         }
 
         setState({

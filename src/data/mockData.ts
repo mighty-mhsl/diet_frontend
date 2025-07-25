@@ -8,7 +8,7 @@ export const mockMeals: Meal[] = [
     description: "Protein-rich quinoa with fresh vegetables, olives, and feta cheese",
     healthBenefits: "High in plant protein and omega-3 fatty acids. Quinoa provides all essential amino acids while olive oil supports heart health. Rich in fiber and antioxidants from colorful vegetables.",
     cookingTime: 25,
-    isLeftover: false,
+    leftover: false,
     ingredients: [
       { name: "Quinoa", quantity: "1", unit: "cup" },
       { name: "Cherry tomatoes", quantity: "200", unit: "g" },
@@ -28,7 +28,7 @@ export const mockMeals: Meal[] = [
     description: "Creamy Greek yogurt topped with raw honey, walnuts, and fresh berries",
     healthBenefits: "Packed with probiotics for digestive health and high-quality protein. Walnuts provide omega-3 fatty acids and vitamin E. Berries offer powerful antioxidants and fiber.",
     cookingTime: 5,
-    isLeftover: false,
+    leftover: false,
     ingredients: [
       { name: "Greek yogurt", quantity: "200", unit: "g" },
       { name: "Raw honey", quantity: "1", unit: "tbsp" },
@@ -45,7 +45,7 @@ export const mockMeals: Meal[] = [
     description: "Fresh sea bass grilled with Mediterranean herbs and seasonal vegetables",
     healthBenefits: "Rich in omega-3 fatty acids and lean protein. Grilled vegetables retain maximum nutrients while herbs provide antioxidants and anti-inflammatory compounds.",
     cookingTime: 35,
-    isLeftover: false,
+    leftover: false,
     ingredients: [
       { name: "Sea bass fillets", quantity: "400", unit: "g" },
       { name: "Zucchini", quantity: "2", unit: "medium" },
@@ -65,7 +65,7 @@ export const mockMeals: Meal[] = [
     description: "Energy-boosting mix of almonds, dried figs, and dark chocolate",
     healthBenefits: "Provides sustained energy from healthy fats and natural sugars. Almonds offer vitamin E and magnesium, while dark chocolate contains flavonoids for heart health.",
     cookingTime: 0,
-    isLeftover: true,
+    leftover: true,
     ingredients: [
       { name: "Raw almonds", quantity: "40", unit: "g" },
       { name: "Dried figs", quantity: "30", unit: "g" },
