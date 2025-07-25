@@ -7,8 +7,8 @@ import LoadingSpinner from '../components/LoadingSpinner';
 const ShoppingList: React.FC = () => {
   const { shoppingList, toggleShoppingItemPurchased, isLoading } = useAppContext();
 
-  const unpurchasedItems = shoppingList.filter(item => !item.isPurchased);
-  const purchasedItems = shoppingList.filter(item => item.isPurchased);
+  const unpurchasedItems = shoppingList.filter(item => !item.purchased);
+  const purchasedItems = shoppingList.filter(item => item.purchased);
 
   const totalCost = unpurchasedItems.reduce((total, item) => 
     total + parseFloat(item.estimatedCost), 0

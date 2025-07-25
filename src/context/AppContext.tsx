@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-import { AppState, InventoryItem, Meal } from '../types';
-import { mockShoppingList, mockInventory } from '../data/mockData';
+import { AppState, InventoryItem, Meal, ShoppingListItem } from '../types';
+import { mockInventory } from '../data/mockData';
 
 interface AppContextType extends AppState {
   toggleShoppingItemPurchased: (id: number) => void;
@@ -50,9 +50,22 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
           meals = data.meals;
         }
 
+        const shoppingRes = await fetch('http://localhost:8080/api/shopping-lists/current');
+        let shoppingList = [] as ShoppingListItem[];
+        if (shoppingRes.ok) {
+          type ShoppingListResponse = {
+            id: number;
+            items: ShoppingListItem[];
+            estimatedCost: number;
+            createdDate: string;
+          };
+          const data: ShoppingListResponse = await shoppingRes.json();
+          shoppingList = data.items;
+        }
+
         setState({
           meals,
-          shoppingList: mockShoppingList,
+          shoppingList,
           inventory: mockInventory,
           isLoading: false
         });
@@ -60,7 +73,7 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
         console.error('Failed to load meals', err);
         setState({
           meals: [],
-          shoppingList: mockShoppingList,
+          shoppingList: [],
           inventory: mockInventory,
           isLoading: false
         });
@@ -74,7 +87,7 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
     setState(prev => ({
       ...prev,
       shoppingList: prev.shoppingList.map(item =>
-        item.id === id ? { ...item, isPurchased: !item.isPurchased } : item
+        item.id === id ? { ...item, purchased: !item.purchased } : item
       )
     }));
   };

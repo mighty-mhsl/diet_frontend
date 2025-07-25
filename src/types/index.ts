@@ -22,7 +22,7 @@ export interface ShoppingListItem {
   ingredientName: string;
   quantity: string;
   unit: string;
-  isPurchased: boolean;
+  purchased: boolean;
   estimatedCost: string;
 }
 
