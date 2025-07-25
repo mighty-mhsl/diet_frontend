@@ -82,7 +82,7 @@ export const mockShoppingList: ShoppingListItem[] = [
     ingredientName: "Extra Virgin Olive Oil",
     quantity: "500",
     unit: "ml",
-    isPurchased: false,
+    purchased: false,
     estimatedCost: "8.99"
   },
   {
@@ -90,7 +90,7 @@ export const mockShoppingList: ShoppingListItem[] = [
     ingredientName: "Fresh Spinach",
     quantity: "200",
     unit: "g",
-    isPurchased: true,
+    purchased: true,
     estimatedCost: "3.49"
   },
   {
@@ -98,7 +98,7 @@ export const mockShoppingList: ShoppingListItem[] = [
     ingredientName: "Greek Yogurt",
     quantity: "1",
     unit: "large container",
-    isPurchased: false,
+    purchased: false,
     estimatedCost: "4.99"
   },
   {
@@ -106,7 +106,7 @@ export const mockShoppingList: ShoppingListItem[] = [
     ingredientName: "Quinoa",
     quantity: "500",
     unit: "g",
-    isPurchased: false,
+    purchased: false,
     estimatedCost: "6.49"
   },
   {
@@ -114,7 +114,7 @@ export const mockShoppingList: ShoppingListItem[] = [
     ingredientName: "Cherry Tomatoes",
     quantity: "400",
     unit: "g",
-    isPurchased: false,
+    purchased: false,
     estimatedCost: "4.29"
   },
   {
@@ -122,7 +122,7 @@ export const mockShoppingList: ShoppingListItem[] = [
     ingredientName: "Feta Cheese",
     quantity: "200",
     unit: "g",
-    isPurchased: true,
+    purchased: true,
     estimatedCost: "5.99"
   },
   {
@@ -130,7 +130,7 @@ export const mockShoppingList: ShoppingListItem[] = [
     ingredientName: "Kalamata Olives",
     quantity: "150",
     unit: "g",
-    isPurchased: false,
+    purchased: false,
     estimatedCost: "3.79"
   },
   {
@@ -138,7 +138,7 @@ export const mockShoppingList: ShoppingListItem[] = [
     ingredientName: "Raw Honey",
     quantity: "350",
     unit: "g",
-    isPurchased: false,
+    purchased: false,
     estimatedCost: "7.99"
   }
 ];

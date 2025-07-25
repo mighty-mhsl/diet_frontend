@@ -13,7 +13,7 @@ const Dashboard: React.FC = () => {
   const todaysMeals = meals.slice(0, 4);
   
   // Get first 3 shopping items that aren't purchased
-  const upcomingShoppingItems = shoppingList.filter(item => !item.isPurchased).slice(0, 3);
+  const upcomingShoppingItems = shoppingList.filter(item => !item.purchased).slice(0, 3);
 
   if (isLoading) {
     return (
@@ -92,12 +92,12 @@ const Dashboard: React.FC = () => {
                   </div>
                 ))}
                 
-                {shoppingList.filter(item => !item.isPurchased).length > 3 && (
+                {shoppingList.filter(item => !item.purchased).length > 3 && (
                   <Link 
                     to="/shopping"
                     className="block text-center py-3 text-green-600 font-medium hover:text-green-700 bg-green-50 rounded-lg transition-colors"
                   >
-                    +{shoppingList.filter(item => !item.isPurchased).length - 3} more items
+                    +{shoppingList.filter(item => !item.purchased).length - 3} more items
                   </Link>
                 )}
               </div>
@@ -124,7 +124,7 @@ const Dashboard: React.FC = () => {
             </div>
             <div className="bg-white p-4 rounded-xl border border-gray-200 text-center">
               <div className="text-2xl font-bold text-blue-600 mb-1">
-                {shoppingList.filter(item => !item.isPurchased).length}
+                {shoppingList.filter(item => !item.purchased).length}
               </div>
               <div className="text-sm text-gray-600">Items to Buy</div>
             </div>
