@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-import { AppState, Meal, ShoppingListItem, InventoryItem } from '../types';
-import { mockMeals, mockShoppingList, mockInventory } from '../data/mockData';
+import { AppState, InventoryItem, Meal } from '../types';
+import { mockShoppingList, mockInventory } from '../data/mockData';
 
 interface AppContextType extends AppState {
   toggleShoppingItemPurchased: (id: number) => void;
@@ -31,20 +31,38 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
     isLoading: true
   });
 
-  // Simulate loading data
+  // Load initial data
   useEffect(() => {
     const loadData = async () => {
       setState(prev => ({ ...prev, isLoading: true }));
-      
-      // Simulate API call delay
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      setState({
-        meals: mockMeals,
-        shoppingList: mockShoppingList,
-        inventory: mockInventory,
-        isLoading: false
-      });
+
+      try {
+        const res = await fetch('http://localhost:8080/api/meal-plans/current');
+        let meals: Meal[] = [];
+        if (res.ok) {
+          type MealResponse = Omit<Meal, 'isLeftover'> & { leftover: boolean };
+          const data: MealResponse[] = await res.json();
+          meals = data.map((m) => ({
+            ...m,
+            isLeftover: m.leftover,
+          }));
+        }
+
+        setState({
+          meals,
+          shoppingList: mockShoppingList,
+          inventory: mockInventory,
+          isLoading: false
+        });
+      } catch (err) {
+        console.error('Failed to load meals', err);
+        setState({
+          meals: [],
+          shoppingList: mockShoppingList,
+          inventory: mockInventory,
+          isLoading: false
+        });
+      }
     };
 
     loadData();
