@@ -59,7 +59,7 @@ const MealDetail: React.FC = () => {
               >
                 {meal.mealType}
               </span>
-              {meal.isLeftover && (
+              {meal.leftover && (
                 <span className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium border border-gray-200">
                   Leftover
                 </span>

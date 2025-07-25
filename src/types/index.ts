@@ -11,7 +11,8 @@ export interface Meal {
   description: string;
   healthBenefits: string;
   cookingTime: number;
-  isLeftover: boolean;
+  leftover: boolean;
+  cookDate?: [number, number, number];
   ingredients: Ingredient[];
   recipe: string;
 }

@@ -31,7 +31,7 @@ const MealCard: React.FC<MealCardProps> = ({ meal, className = '' }) => {
           {meal.mealType}
         </span>
         <div className="flex items-center space-x-2">
-          {meal.isLeftover && (
+          {meal.leftover && (
             <span className="px-2 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-medium">
               Leftover
             </span>
