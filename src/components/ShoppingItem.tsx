@@ -42,7 +42,7 @@ const ShoppingItem: React.FC<ShoppingItemProps> = ({
           {item.ingredientName}
         </h3>
         <p className="text-sm text-gray-500">
-          {item.quantity} {item.unit}
+          {item.grams} g
         </p>
       </div>
       

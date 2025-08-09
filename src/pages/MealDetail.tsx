@@ -116,7 +116,7 @@ const MealDetail: React.FC = () => {
                     {ingredient.name}
                   </span>
                   <span className="text-gray-600 text-sm">
-                    {ingredient.quantity} {ingredient.unit}
+                    {ingredient.grams} g
                   </span>
                 </li>
               ))}
