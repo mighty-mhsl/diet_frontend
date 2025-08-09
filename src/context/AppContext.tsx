@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { AppState, InventoryItem, Meal, ShoppingListItem } from '../types';
-import { mockInventory } from '../data/mockData';
 import { API_BASE_URL } from '../config';
+import { getExpirationStatus } from '../utils/dateUtils';
 
 interface AppContextType extends AppState {
   toggleShoppingItemPurchased: (id: number) => void;
@@ -64,10 +64,38 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
           shoppingList = data.items;
         }
 
+        const inventoryRes = await fetch(`${API_BASE_URL}/api/inventory`);
+        let inventory: InventoryItem[] = [];
+        if (inventoryRes.ok) {
+          type InventoryResponseItem = {
+            id: number;
+            ingredientName: string;
+            grams: number;
+            isPurchased: boolean;
+            estimatedCost: string;
+            planDate: string | [number, number, number];
+            expirationDate: string | [number, number, number];
+          };
+          const data: InventoryResponseItem[] = await inventoryRes.json();
+          const parseDate = (date: string | [number, number, number]) =>
+            Array.isArray(date) ? date.join('-') : date;
+          inventory = data.map(item => {
+            const expirationDate = parseDate(item.expirationDate);
+            return {
+              id: item.id,
+              name: item.ingredientName,
+              quantity: item.grams.toString(),
+              unit: 'g',
+              expirationDate,
+              status: getExpirationStatus(expirationDate)
+            };
+          });
+        }
+
         setState({
           meals,
           shoppingList,
-          inventory: mockInventory,
+          inventory,
           isLoading: false
         });
       } catch (err) {
@@ -75,7 +103,7 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
         setState({
           meals: [],
           shoppingList: [],
-          inventory: mockInventory,
+          inventory: [],
           isLoading: false
         });
       }
