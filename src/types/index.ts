@@ -1,6 +1,7 @@
 export interface Ingredient {
   name: string;
   grams: number;
+  details?: string;
 }
 
 export interface Meal {

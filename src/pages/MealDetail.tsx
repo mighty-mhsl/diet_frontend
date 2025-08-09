@@ -125,10 +125,20 @@ const MealDetail: React.FC = () => {
             </h2>
             <ul className="space-y-3">
               {meal.ingredients.map((ingredient, index) => (
-                <li key={index} className="flex items-center justify-between py-2 border-b border-gray-100 last:border-b-0">
-                  <span className="text-gray-900 font-medium">
-                    {ingredient.name}
-                  </span>
+                <li
+                  key={index}
+                  className="flex items-start justify-between py-2 border-b border-gray-100 last:border-b-0"
+                >
+                  <div className="flex flex-col space-y-0.5">
+                    <span className="text-gray-900 font-medium">
+                      {ingredient.name}
+                    </span>
+                    {ingredient.details && (
+                      <span className="text-sm text-gray-500">
+                        {ingredient.details}
+                      </span>
+                    )}
+                  </div>
                   <span className="text-gray-600 text-sm">
                     {ingredient.grams} g
                   </span>
