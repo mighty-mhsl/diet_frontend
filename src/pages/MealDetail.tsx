@@ -129,11 +129,13 @@ const MealDetail: React.FC = () => {
               Recipe
             </h2>
             <div className="prose prose-sm max-w-none">
-              {meal.recipe.split('\n\n').map((step, index) => (
-                <p key={index} className="text-gray-700 leading-relaxed mb-3 last:mb-0">
-                  {step}
-                </p>
-              ))}
+              <ol className="list-decimal pl-4 space-y-2">
+                {meal.recipe.split('\n\n').map((step, index) => (
+                  <li key={index} className="text-gray-700 leading-relaxed">
+                    {step.replace(/^\d+\.\s*/, '')}
+                  </li>
+                ))}
+              </ol>
             </div>
           </div>
         </div>
