@@ -4,6 +4,7 @@ import { Clock } from 'lucide-react';
 import { useAppContext } from '../context/AppContext';
 import Header from '../components/Header';
 import LoadingSpinner from '../components/LoadingSpinner';
+import { API_BASE_URL } from '../config';
 
 const MealDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -40,13 +41,31 @@ const MealDetail: React.FC = () => {
     return colors[mealType as keyof typeof colors];
   };
 
+  const handleCooked = async () => {
+    try {
+      await fetch(`${API_BASE_URL}/api/meals/${meal.id}`, {
+        method: 'PUT'
+      });
+    } catch (err) {
+      console.error('Failed to mark meal as cooked', err);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gray-50 pb-20 md:pb-8">
       <Header title={meal.name} showBackButton className="bg-green-600 text-white border-green-700">
-        <div className="flex items-center space-x-1 text-green-100">
-          <Clock className="w-4 h-4" />
-          <span className="text-sm font-medium">{meal.cookingTime}m</span>
-        </div>
+        <>
+          <div className="flex items-center space-x-1 text-green-100">
+            <Clock className="w-4 h-4" />
+            <span className="text-sm font-medium">{meal.cookingTime}m</span>
+          </div>
+          <button
+            onClick={handleCooked}
+            className="bg-green-500 text-white px-4 py-2 rounded-lg font-medium hover:bg-green-400 transition-colors"
+          >
+            Cooked!
+          </button>
+        </>
       </Header>
 
       <div className="max-w-md mx-auto md:max-w-4xl">
