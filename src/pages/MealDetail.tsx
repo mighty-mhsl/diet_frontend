@@ -53,42 +53,43 @@ const MealDetail: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 pb-20 md:pb-8">
-      <Header title={meal.name} showBackButton className="bg-green-600 text-white border-green-700">
-        <>
-          <div className="flex items-center space-x-1 text-green-100">
-            <Clock className="w-4 h-4" />
-            <span className="text-sm font-medium">{meal.cookingTime}m</span>
-          </div>
-          <button
-            onClick={handleCooked}
-            className="bg-green-500 text-white px-4 py-2 rounded-lg font-medium hover:bg-green-400 transition-colors"
-          >
-            Cooked!
-          </button>
-        </>
-      </Header>
+      <Header title={meal.name} showBackButton className="bg-green-600 text-white border-green-700" />
 
       <div className="max-w-md mx-auto md:max-w-4xl">
         <div className="p-4 space-y-6">
           {/* Meal Info */}
           <div className="bg-white rounded-xl border border-gray-200 p-6">
-            <div className="flex items-center justify-between mb-4">
-              <span 
-                className={`px-3 py-1 rounded-full text-sm font-semibold uppercase tracking-wide border ${getMealTypeColor(meal.mealType)}`}
-              >
-                {meal.mealType}
-              </span>
-              {meal.leftover && (
-                <span className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium border border-gray-200">
-                  Leftover
+            <div className="flex items-start justify-between mb-4">
+              <div className="flex items-center space-x-2">
+                <span
+                  className={`px-3 py-1 rounded-full text-sm font-semibold uppercase tracking-wide border ${getMealTypeColor(meal.mealType)}`}
+                >
+                  {meal.mealType}
                 </span>
-              )}
+                {meal.leftover && (
+                  <span className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium border border-gray-200">
+                    Leftover
+                  </span>
+                )}
+              </div>
+              <div className="flex items-center space-x-3">
+                <div className="flex items-center px-3 py-1 bg-green-100 text-green-800 border border-green-200 rounded-full text-sm font-medium">
+                  <Clock className="w-4 h-4 mr-1" />
+                  <span>{meal.cookingTime}m</span>
+                </div>
+                <button
+                  onClick={handleCooked}
+                  className="bg-green-500 text-white px-4 py-2 rounded-lg font-medium hover:bg-green-400 transition-colors"
+                >
+                  Cooked!
+                </button>
+              </div>
             </div>
-            
+
             <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
               {meal.name}
             </h1>
-            
+
             <p className="text-gray-600 leading-relaxed">
               {meal.description}
             </p>
