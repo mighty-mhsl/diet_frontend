@@ -83,7 +83,7 @@ const Dashboard: React.FC = () => {
                         {item.ingredientName}
                       </h3>
                       <p className="text-xs text-gray-500">
-                        {item.quantity} {item.unit}
+                        {item.grams} g
                       </p>
                     </div>
                     <span className="font-semibold text-gray-900 text-sm">

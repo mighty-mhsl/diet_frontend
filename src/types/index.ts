@@ -1,7 +1,6 @@
 export interface Ingredient {
   name: string;
-  quantity: string;
-  unit: string;
+  grams: number;
 }
 
 export interface Meal {
@@ -20,8 +19,7 @@ export interface Meal {
 export interface ShoppingListItem {
   id: number;
   ingredientName: string;
-  quantity: string;
-  unit: string;
+  grams: number;
   purchased: boolean;
   estimatedCost: string;
 }

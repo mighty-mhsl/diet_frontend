@@ -10,14 +10,14 @@ export const mockMeals: Meal[] = [
     cookingTime: 25,
     leftover: false,
     ingredients: [
-      { name: "Quinoa", quantity: "1", unit: "cup" },
-      { name: "Cherry tomatoes", quantity: "200", unit: "g" },
-      { name: "Cucumber", quantity: "1", unit: "medium" },
-      { name: "Kalamata olives", quantity: "50", unit: "g" },
-      { name: "Feta cheese", quantity: "80", unit: "g" },
-      { name: "Extra virgin olive oil", quantity: "2", unit: "tbsp" },
-      { name: "Lemon juice", quantity: "1", unit: "tbsp" },
-      { name: "Fresh herbs", quantity: "2", unit: "tbsp" }
+      { name: "Quinoa", grams: 170 },
+      { name: "Cherry tomatoes", grams: 200 },
+      { name: "Cucumber", grams: 200 },
+      { name: "Kalamata olives", grams: 50 },
+      { name: "Feta cheese", grams: 80 },
+      { name: "Extra virgin olive oil", grams: 28 },
+      { name: "Lemon juice", grams: 15 },
+      { name: "Fresh herbs", grams: 10 }
     ],
     recipe: "1. Rinse quinoa and cook in vegetable broth according to package directions (about 15 minutes).\n\n2. Meanwhile, dice cucumber and halve cherry tomatoes.\n\n3. Crumble feta cheese and roughly chop olives.\n\n4. Whisk olive oil, lemon juice, salt, and pepper for dressing.\n\n5. Combine cooked quinoa with vegetables, olives, and feta.\n\n6. Drizzle with dressing and garnish with fresh herbs.\n\n7. Serve immediately or chill for 30 minutes for best flavor."
   },
@@ -30,11 +30,11 @@ export const mockMeals: Meal[] = [
     cookingTime: 5,
     leftover: false,
     ingredients: [
-      { name: "Greek yogurt", quantity: "200", unit: "g" },
-      { name: "Raw honey", quantity: "1", unit: "tbsp" },
-      { name: "Walnuts", quantity: "30", unit: "g" },
-      { name: "Mixed berries", quantity: "100", unit: "g" },
-      { name: "Cinnamon", quantity: "1", unit: "pinch" }
+      { name: "Greek yogurt", grams: 200 },
+      { name: "Raw honey", grams: 21 },
+      { name: "Walnuts", grams: 30 },
+      { name: "Mixed berries", grams: 100 },
+      { name: "Cinnamon", grams: 1 }
     ],
     recipe: "1. Place Greek yogurt in a serving bowl.\n\n2. Drizzle honey over the yogurt.\n\n3. Roughly chop walnuts and sprinkle on top.\n\n4. Add fresh mixed berries.\n\n5. Dust lightly with cinnamon.\n\n6. Serve immediately for best texture."
   },
@@ -47,14 +47,14 @@ export const mockMeals: Meal[] = [
     cookingTime: 35,
     leftover: false,
     ingredients: [
-      { name: "Sea bass fillets", quantity: "400", unit: "g" },
-      { name: "Zucchini", quantity: "2", unit: "medium" },
-      { name: "Bell peppers", quantity: "2", unit: "pieces" },
-      { name: "Red onion", quantity: "1", unit: "small" },
-      { name: "Extra virgin olive oil", quantity: "3", unit: "tbsp" },
-      { name: "Lemon", quantity: "1", unit: "large" },
-      { name: "Fresh rosemary", quantity: "2", unit: "sprigs" },
-      { name: "Garlic", quantity: "2", unit: "cloves" }
+      { name: "Sea bass fillets", grams: 400 },
+      { name: "Zucchini", grams: 400 },
+      { name: "Bell peppers", grams: 300 },
+      { name: "Red onion", grams: 70 },
+      { name: "Extra virgin olive oil", grams: 42 },
+      { name: "Lemon", grams: 120 },
+      { name: "Fresh rosemary", grams: 4 },
+      { name: "Garlic", grams: 6 }
     ],
     recipe: "1. Preheat grill to medium-high heat.\n\n2. Pat sea bass fillets dry and season with salt, pepper, and minced garlic.\n\n3. Slice zucchini and bell peppers, cut onion into wedges.\n\n4. Toss vegetables with olive oil, salt, and pepper.\n\n5. Grill vegetables for 15-20 minutes, turning occasionally.\n\n6. Grill sea bass for 4-5 minutes per side until flaky.\n\n7. Squeeze fresh lemon juice over fish and vegetables.\n\n8. Garnish with fresh rosemary and serve hot."
   },
@@ -67,10 +67,10 @@ export const mockMeals: Meal[] = [
     cookingTime: 0,
     leftover: true,
     ingredients: [
-      { name: "Raw almonds", quantity: "40", unit: "g" },
-      { name: "Dried figs", quantity: "30", unit: "g" },
-      { name: "Dark chocolate", quantity: "20", unit: "g" },
-      { name: "Sunflower seeds", quantity: "15", unit: "g" }
+      { name: "Raw almonds", grams: 40 },
+      { name: "Dried figs", grams: 30 },
+      { name: "Dark chocolate", grams: 20 },
+      { name: "Sunflower seeds", grams: 15 }
     ],
     recipe: "1. Combine all ingredients in a small container.\n\n2. Mix well to distribute evenly.\n\n3. Store in an airtight container for up to one week.\n\n4. Portion into 30g servings for perfect snack sizes."
   }
@@ -80,64 +80,56 @@ export const mockShoppingList: ShoppingListItem[] = [
   {
     id: 1,
     ingredientName: "Extra Virgin Olive Oil",
-    quantity: "500",
-    unit: "ml",
+    grams: 460,
     purchased: false,
     estimatedCost: "8.99"
   },
   {
     id: 2,
     ingredientName: "Fresh Spinach",
-    quantity: "200",
-    unit: "g",
+    grams: 200,
     purchased: true,
     estimatedCost: "3.49"
   },
   {
     id: 3,
     ingredientName: "Greek Yogurt",
-    quantity: "1",
-    unit: "large container",
+    grams: 500,
     purchased: false,
     estimatedCost: "4.99"
   },
   {
     id: 4,
     ingredientName: "Quinoa",
-    quantity: "500",
-    unit: "g",
+    grams: 500,
     purchased: false,
     estimatedCost: "6.49"
   },
   {
     id: 5,
     ingredientName: "Cherry Tomatoes",
-    quantity: "400",
-    unit: "g",
+    grams: 400,
     purchased: false,
     estimatedCost: "4.29"
   },
   {
     id: 6,
     ingredientName: "Feta Cheese",
-    quantity: "200",
-    unit: "g",
+    grams: 200,
     purchased: true,
     estimatedCost: "5.99"
   },
   {
     id: 7,
     ingredientName: "Kalamata Olives",
-    quantity: "150",
-    unit: "g",
+    grams: 150,
     purchased: false,
     estimatedCost: "3.79"
   },
   {
     id: 8,
     ingredientName: "Raw Honey",
-    quantity: "350",
-    unit: "g",
+    grams: 350,
     purchased: false,
     estimatedCost: "7.99"
   }
