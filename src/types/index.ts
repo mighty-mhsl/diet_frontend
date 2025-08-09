@@ -6,7 +6,7 @@ export interface Ingredient {
 export interface Meal {
   id: number;
   name: string;
-  mealType: 'BREAKFAST' | 'LUNCH' | 'DINNER' | 'SNACK';
+  mealType: 'BREAKFAST' | 'LUNCH' | 'DINNER' | 'BITE';
   description: string;
   healthBenefits: string;
   cookingTime: number;

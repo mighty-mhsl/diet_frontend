@@ -36,7 +36,7 @@ const MealDetail: React.FC = () => {
       BREAKFAST: 'bg-orange-100 text-orange-800 border-orange-200',
       LUNCH: 'bg-green-100 text-green-800 border-green-200',
       DINNER: 'bg-blue-100 text-blue-800 border-blue-200',
-      SNACK: 'bg-purple-100 text-purple-800 border-purple-200'
+      BITE: 'bg-purple-100 text-purple-800 border-purple-200'
     };
     return colors[mealType as keyof typeof colors];
   };

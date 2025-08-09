@@ -14,7 +14,7 @@ const MealCard: React.FC<MealCardProps> = ({ meal, className = '' }) => {
       BREAKFAST: 'bg-orange-100 text-orange-800',
       LUNCH: 'bg-green-100 text-green-800',
       DINNER: 'bg-blue-100 text-blue-800',
-      SNACK: 'bg-purple-100 text-purple-800'
+      BITE: 'bg-purple-100 text-purple-800'
     };
     return colors[mealType];
   };
