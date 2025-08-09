@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { AppState, InventoryItem, Meal, ShoppingListItem } from '../types';
 import { mockInventory } from '../data/mockData';
+import { API_BASE_URL } from '../config';
 
 interface AppContextType extends AppState {
   toggleShoppingItemPurchased: (id: number) => void;
@@ -37,7 +38,7 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
       setState(prev => ({ ...prev, isLoading: true }));
 
       try {
-        const res = await fetch('http://localhost:8080/api/meal-plans/current');
+        const res = await fetch(`${API_BASE_URL}/api/meal-plans/current`);
         let meals: Meal[] = [];
         if (res.ok) {
           type MealPlanResponse = {
@@ -50,7 +51,7 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
           meals = data.meals;
         }
 
-        const shoppingRes = await fetch('http://localhost:8080/api/shopping-lists/current');
+        const shoppingRes = await fetch(`${API_BASE_URL}/api/shopping-lists/current`);
         let shoppingList = [] as ShoppingListItem[];
         if (shoppingRes.ok) {
           type ShoppingListResponse = {
