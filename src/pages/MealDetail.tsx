@@ -51,6 +51,19 @@ const MealDetail: React.FC = () => {
     }
   };
 
+  const parseRecipe = (recipe: string) => {
+    const numberedSteps = recipe.match(/\d+\.\s*[\s\S]*?(?=(\d+\.\s)|$)/g);
+    if (numberedSteps) {
+      return numberedSteps.map(step => step.replace(/^\d+\.\s*/, '').trim());
+    }
+    return recipe
+      .split(/\n+/)
+      .map(step => step.trim())
+      .filter(Boolean);
+  };
+
+  const recipeSteps = parseRecipe(meal.recipe);
+
   return (
     <div className="min-h-screen bg-gray-50 pb-20 md:pb-8">
       <Header title={meal.name} showBackButton className="bg-green-600 text-white border-green-700" />
@@ -131,9 +144,9 @@ const MealDetail: React.FC = () => {
             </h2>
             <div className="prose prose-sm max-w-none">
               <ol className="list-decimal pl-4 space-y-2">
-                {meal.recipe.split('\n\n').map((step, index) => (
+                {recipeSteps.map((step, index) => (
                   <li key={index} className="text-gray-700 leading-relaxed">
-                    {step.replace(/^\d+\.\s*/, '')}
+                    {step}
                   </li>
                 ))}
               </ol>
